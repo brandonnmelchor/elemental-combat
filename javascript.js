@@ -1,3 +1,6 @@
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   const randomThree = Math.floor(Math.random() * 3) + 1;
 
@@ -10,30 +13,53 @@ function computerPlay() {
   }
 }
 
-const playerSelection = prompt("Let's play a game! Rock, paper, or scissors?").toLowerCase();
-const computerSelection = computerPlay();
-
 function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) return "It's a tie!";
-  else if (playerSelection === "rock") {
-    if (computerSelection === "paper") return "You Lose! Paper beats Rock.";
-    else return "You Win! Rock beats Scissors.";
+  if (playerSelection === computerSelection) {
+    return "It's a tie!";
+  } else if (playerSelection === "rock") {
+    if (computerSelection === "paper") {
+      computerScore++;
+      return "You Lose! Paper beats Rock.";
+    } else {
+      playerScore++;
+      return "You Win! Rock beats Scissors.";
+    }
   } else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") return "You Lose! Scissors beats Paper.";
-    else return "You Win! Paper beats Rock.";
+    if (computerSelection === "scissors") {
+      computerScore++;
+      return "You Lose! Scissors beats Paper.";
+    } else {
+      playerScore++;
+      return "You Win! Paper beats Rock.";
+    }
   } else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") return "You Lose! Rock beats Scissors.";
-    else return "You Win! Scissors beats Paper.";
+    if (computerSelection === "rock") {
+      computerScore++;
+      return "You Lose! Rock beats Scissors.";
+    } else {
+      playerScore++;
+      return "You Win! Scissors beats Paper.";
+    }
   } else {
     return playRound(prompt("Choose again! Rock, paper, or scissors?"), computerSelection);
   }
 }
 
-// function game() {
-//   const playerScore = 0;
-//   const computerScore = 0;
+function game() {
+  for (let i = 0; i < 5; i++) {
+    const playerSelection = prompt("Let's play a game! Rock, paper, or scissors?").toLowerCase();
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection));
+  }
 
-//   for (let i = 0; i < 5; i++) {
-//     console.log(playRound(playerSelection, computerSelection));
-//   }
-// }
+  if (playerScore > computerScore) {
+    console.log("You won out of 5 games!");
+  } else {
+    console.log("You lost out of 5 games!");
+  }
+
+  console.log(`Player score: ${playerScore}`);
+  console.log(`Computer score: ${computerScore}`);
+}
+
+game();
