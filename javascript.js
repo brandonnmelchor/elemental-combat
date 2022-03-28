@@ -16,30 +16,12 @@ function computerPlay() {
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
     return "It's a tie!";
-  } else if (playerSelection === "rock") {
-    if (computerSelection === "paper") {
-      computerScore++;
-      return "You Lose! Paper beats Rock.";
-    } else {
-      playerScore++;
-      return "You Win! Rock beats Scissors.";
-    }
-  } else if (playerSelection === "paper") {
-    if (computerSelection === "scissors") {
-      computerScore++;
-      return "You Lose! Scissors beats Paper.";
-    } else {
-      playerScore++;
-      return "You Win! Paper beats Rock.";
-    }
-  } else if (playerSelection === "scissors") {
-    if (computerSelection === "rock") {
-      computerScore++;
-      return "You Lose! Rock beats Scissors.";
-    } else {
-      playerScore++;
-      return "You Win! Scissors beats Paper.";
-    }
+  } else if ((playerSelection === "rock" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "rock")) {
+    computerScore++;
+    return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`;
+  } else if ((playerSelection === "rock" && computerSelection === "scissors") || (playerSelection === "scissors" && computerSelection === "paper") || (playerSelection === "paper" && computerSelection === "rock")) {
+    playerScore++;
+    return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`;
   } else {
     return playRound(prompt("Choose again! Rock, paper, or scissors?"), computerSelection);
   }
@@ -53,13 +35,14 @@ function game() {
   }
 
   if (playerScore > computerScore) {
-    console.log("You won out of 5 games!");
+    console.log(`Winner! Player score: ${playerScore}, Computer score: ${computerScore}`);
   } else {
-    console.log("You lost out of 5 games!");
+    console.log(`Loser! Player score: ${playerScore}, Computer score: ${computerScore}`);
   }
+}
 
-  console.log(`Player score: ${playerScore}`);
-  console.log(`Computer score: ${computerScore}`);
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 game();
