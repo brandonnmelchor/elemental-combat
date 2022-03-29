@@ -23,7 +23,7 @@ function playRound(playerSelection, computerSelection) {
     playerScore++;
     return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`;
   } else {
-    return playRound(prompt("Choose again! Rock, paper, or scissors?"), computerSelection);
+    return playRound(prompt("Invalid choice. Please choose again! Rock, paper, or scissors?"), computerSelection);
   }
 }
 
