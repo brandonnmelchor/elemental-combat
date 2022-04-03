@@ -38,7 +38,7 @@ h1 {
 .game-rules,
 .game-area,
 .game-score {
-  width: 1000px;
+  width: 1200px;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -60,7 +60,7 @@ h1 {
   gap: 20px;
 }
 
-.element-choice {
+.element {
   width: 10rem;
   padding: 1rem .5rem;
   color: #F8F5F1;
@@ -76,6 +76,12 @@ h1 {
   cursor: pointer;
 }
 
+.selected {
+  transform: scale(1.2);
+  border-color: #ffc600;
+  box-shadow: 0 0 1rem #ffc600;
+}
+
 .fire {
   background: #F8A488;
 }
@@ -86,12 +92,6 @@ h1 {
 
 .water {
   background: #45526C;
-}
-
-.selected {
-  transform: scale(1.2);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
 }
 
 footer {

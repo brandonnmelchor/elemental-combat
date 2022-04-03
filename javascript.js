@@ -1,45 +1,41 @@
 let playerScore = 0;
-let computerScore = 0;
+let enemyScore = 0;
 
 function computerPlay() {
   const randomThree = Math.floor(Math.random() * 3) + 1;
 
-  if (randomThree === 1) {
-    return "fire";
-  } else if (randomThree === 2) {
-    return "nature";
-  } else {
-    return "water";
-  }
+  if (randomThree === 1) return "fire";
+  else if (randomThree === 2) return "nature";
+  else return "water";
 }
 
-function playRound(playerSelection, computerSelection) {
-  if (playerSelection === computerSelection) {
+function playRound(playerElement, enemyElement) {
+  if (playerElement === enemyElement) {
     return "It's a tie!";
   } else if (
-    (playerSelection === "fire" && computerSelection === "nature") ||
-    (playerSelection === "nature" && computerSelection === "water") ||
-    (playerSelection === "water" && computerSelection === "fire")
+    (playerElement === "fire" && enemyElement === "nature") ||
+    (playerElement === "nature" && enemyElement === "water") ||
+    (playerElement === "water" && enemyElement === "fire")
   ) {
-    computerScore++;
-    return `You lose! ${capitalize(computerSelection)} beats ${capitalize(playerSelection)}.`;
+    enemyScore++;
+    return `You lose! ${capitalize(enemyElement)} beats ${capitalize(playerElement)}.`;
   } else {
     playerScore++;
-    return `You win! ${capitalize(playerSelection)} beats ${capitalize(computerSelection)}.`;
+    return `You win! ${capitalize(playerElement)} beats ${capitalize(enemyElement)}.`;
   }
 }
 
 // function game() {
 //   for (let i = 0; i < 5; i++) {
-//     const playerSelection = prompt("Let's play a game! fire, nature, or water?").toLowerCase();
-//     const computerSelection = computerPlay();
-//     console.log(playRound(playerSelection, computerSelection));
+//     const playerElement = prompt("Let's play a game! fire, nature, or water?").toLowerCase();
+//     const enemyElement = computerPlay();
+//     console.log(playRound(playerElement, enemyElement));
 //   }
 
-//   if (playerScore > computerScore) {
-//     console.log(`Winner! Player score: ${playerScore}, Computer score: ${computerScore}`);
+//   if (playerScore > enemyScore) {
+//     console.log(`Winner! Player score: ${playerScore}, Computer score: ${enemyScore}`);
 //   } else {
-//     console.log(`Loser! Player score: ${playerScore}, Computer score: ${computerScore}`);
+//     console.log(`Loser! Player score: ${playerScore}, Computer score: ${enemyScore}`);
 //   }
 // }
 
