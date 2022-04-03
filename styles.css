@@ -36,7 +36,8 @@ h1 {
 }
 
 .game-rules,
-.game-area,
+.player-area,
+.computer-area,
 .game-score {
   width: 1200px;
   font-size: 1.5rem;
@@ -52,7 +53,8 @@ h1 {
   gap: 20px;
 }
 
-.game-area {
+.player-area,
+.computer-area {
   display: flex;
   flex-wrap: wrap;  
   justify-content: center;
@@ -72,7 +74,7 @@ h1 {
   transition: all .08s ease;
 }
 
-.element-choice:hover {
+.element:hover {
   cursor: pointer;
 }
 
