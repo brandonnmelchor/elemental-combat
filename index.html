@@ -9,29 +9,31 @@
     <link rel="shortcut icon" href="#" />
     <script src="javascript.js" defer></script>
 
-    <title>Rock Paper Scissors</title>
+    <title>Elemental Combat</title>
   </head>
   <body>
     <main>
-      <h1>Fantasy Combat</h1>
+      <h1>Elemental Combat</h1>
 
       <div class="game-rules">
-        <p>3 Weapons | 5 Lives | 2 Destinies</p>
-        <p>Sword defeats Bow</p>
-        <p>Magic defeats Sword</p>
-        <p>Bow defeats Magic</p>
+        <p>3 Elements | 5 Lives | 2 Destinies</p>
+        <div class="elements">
+          <p>Fire scorches Nature</p>
+          <p>Nature overwhelms Water</p>
+          <p>Water drowns Fire</p>
+        </div>
       </div>
 
       <div class="game-area">
-        <div class="weapon-choice" id="player-sword">SWORD</div>
-        <div class="weapon-choice" id="player-magic">MAGIC</div>
-        <div class="weapon-choice" id="player-bow">BOW</div>
+        <div class="element-choice fire" id="player-fire">FIRE</div>
+        <div class="element-choice nature" id="player-nature">NATURE</div>
+        <div class="element-choice water" id="player-water">WATER</div>
       </div>
 
       <div class="game-area">
-        <div class="weapon-choice" id="enemy-sword">SWORD</div>
-        <div class="weapon-choice" id="enemy-magic">MAGIC</div>
-        <div class="weapon-choice" id="enemy-bow">BOW</div>
+        <div class="element-choice fire" id="enemy-fire">FIRE</div>
+        <div class="element-choice nature" id="enemy-nature">NATURE</div>
+        <div class="element-choice water" id="enemy-water">WATER</div>
       </div>
 
       <div class="game-score">
@@ -41,5 +43,9 @@
         <p id="game-announcer">Combat Area: Empty</p>
       </div>
     </main>
+
+    <footer>
+      <p>&copy; 2022 Brandonn Melchor</p>
+    </footer>
   </body>
 </html>
