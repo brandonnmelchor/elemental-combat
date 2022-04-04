@@ -7,7 +7,7 @@ const computerArea = document.querySelector(".computer-area");
 const roundCounter = document.querySelector("#rounds");
 const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
-const playAgain = document.querySelector("#play-again");
+const playAgain = document.querySelector(".play-again");
 
 const computerElements = document.querySelectorAll(".computer-area .element");
 const elements = document.querySelectorAll(".player-area .element");
@@ -19,7 +19,7 @@ function playRound() {
 
   const playerSelected = document.querySelector(`.element[id="${this.attributes["id"].nodeValue}"]`);
   const computerSelected = document.querySelector(`.element[id="computer-${computerElement}"]`);
-  highlightElements(playerSelected, computerSelected, computerElement);
+  addElementColor(playerSelected, computerSelected, computerElement);
 
   gameAnnouncer.innerHTML = checkRoundWinner(playerElement, computerElement);
   roundCounter.textContent = `Round:${++rounds}`;
@@ -38,12 +38,15 @@ function computerPlay() {
   else return "water";
 }
 
-function highlightElements(playerSelected, computerSelected, computerElement) {
-  elements.forEach((element) => element.classList.remove("fire", "nature", "water"));
-  computerElements.forEach((element) => element.classList.remove("fire", "nature", "water"));
-
+function addElementColor(playerSelected, computerSelected, computerElement) {
+  removeElementColors();
   playerSelected.classList.add(`${playerSelected.attributes["id"].nodeValue}`, "selected");
   computerSelected.classList.add(`${computerElement}`, "selected");
+}
+
+function removeElementColors() {
+  elements.forEach((element) => element.classList.remove("fire", "nature", "water"));
+  computerElements.forEach((element) => element.classList.remove("fire", "nature", "water"));
 }
 
 function checkRoundWinner(playerElement, computerElement) {
@@ -75,8 +78,8 @@ function checkGameWinner() {
     gameAnnouncer.innerHTML = `You <span style="color: #5AA897;">won</span> this battle!`;
   }
 
-  playAgain.textContent = "Play again?";
-  playAgain.classList.add("play-again");
+  playAgain.style.color = "black";
+  playAgain.classList.add("play-again-hover");
   playAgain.addEventListener("click", resetGame);
 
   elements.forEach((element) => element.removeEventListener("click", playRound));
@@ -92,11 +95,10 @@ function resetGame() {
   roundCounter.textContent = `Round:${rounds}`;
   LivesCounter.textContent = `Player Lives: ${playerLives}. Enemy Lives: ${computerLives}.`;
   gameAnnouncer.textContent = "Your enemy stands before you. Do you choose to fight?";
-  playAgain.textContent = "";
-  playAgain.classList.remove("play-again");
+  playAgain.style.color = "transparent";
+  playAgain.classList.remove("play-again-hover");
   playAgain.removeEventListener("click", resetGame);
 
+  removeElementColors();
   elements.forEach((element) => element.addEventListener("click", playRound));
-  elements.forEach((element) => element.classList.remove("fire", "nature", "water"));
-  computerElements.forEach((element) => element.classList.remove("fire", "nature", "water"));
 }
