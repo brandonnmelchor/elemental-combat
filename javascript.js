@@ -60,15 +60,15 @@ function checkRoundWinner(playerElement, computerElement) {
     (playerElement === "nature" && computerElement === "water") ||
     (playerElement === "water" && computerElement === "fire")
   ) {
-    playerLives--;
-    playerArea.style.borderColor = "#F8A488";
-    computerArea.style.borderColor = "#5AA897";
-    return `<span style="color: #F8A488;">Defeated!</span> The enemy's imposing command of ${computerElement} overwhelms you.`;
-  } else {
     computerLives--;
     playerArea.style.borderColor = "#5AA897";
     computerArea.style.borderColor = "#F8A488";
     return `<span style="color: #5AA897;">Overpowering!</span> Your profound control of ${playerElement} dealt damage to the enemy.`;
+  } else {
+    playerLives--;
+    playerArea.style.borderColor = "#F8A488";
+    computerArea.style.borderColor = "#5AA897";
+    return `<span style="color: #F8A488;">Defeated!</span> The enemy's imposing command of ${computerElement} overwhelms you.`;
   }
 }
 
