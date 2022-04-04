@@ -11,20 +11,68 @@ html {
   font-family: "Amatic SC";
   font-size: 20px;
   text-align: center;
+  scroll-behavior: smooth;
+  overflow: hidden
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1000px;
   min-height: 100vh;
+  gap: 20px;
+  font-size: 2rem;
+}
+
+header h1 {
+  margin-top: auto;
+}
+
+.elements {
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px;
+  margin-top: 2rem;
+}
+
+.start-game {
+  margin-top: 10rem;
+}
+
+.start-game,
+.start-game:visited,
+.start-game:hover,
+.start-game:active {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer {
+  align-self: flex-end;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 2rem;
+  margin-top: auto;
 }
 
 main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   max-width: 1000px;
+  min-height: 100vh;
   gap: 20px;
 }
 
@@ -42,7 +90,7 @@ h1 {
   font-size: 2rem;
 }
 
-.elements {
+.game-rules {
   display: flex;
   flex-wrap: wrap;  
   justify-content: center;
@@ -106,7 +154,16 @@ h1 {
   text-align: left;
 }
 
-.play-again {
+.game-end {
+  display: flex;
+  flex-wrap: wrap;  
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.play-again,
+.back-to-menu {
   width: 10rem;
   color: transparent;
   font-size: 2rem;
@@ -115,9 +172,9 @@ h1 {
   transition: all .08s ease;
 }
 
-footer {
-  align-self: flex-end;
-  width: 100%;
-  line-height: 2rem;
-  margin-top: auto;
+.back-to-menu,
+.back-to-menu:visited,
+.back-to-menu:hover,
+.back-to-menu:active {
+  text-decoration: none;
 }

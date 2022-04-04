@@ -8,6 +8,7 @@ const roundCounter = document.querySelector("#rounds");
 const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
 const playAgain = document.querySelector(".play-again");
+const backtoMenu = document.querySelector(".back-to-menu");
 
 const computerElements = document.querySelectorAll(".computer-area .element");
 const elements = document.querySelectorAll(".player-area .element");
@@ -81,6 +82,8 @@ function checkGameWinner() {
   playAgain.style.color = "black";
   playAgain.classList.add("play-again-hover");
   playAgain.addEventListener("click", resetGame);
+  backtoMenu.style.color = "black";
+  backtoMenu.addEventListener("click", resetGame);
 
   elements.forEach((element) => element.removeEventListener("click", playRound));
 }
@@ -95,9 +98,13 @@ function resetGame() {
   roundCounter.textContent = `Round:${rounds}`;
   LivesCounter.textContent = `Player Lives: ${playerLives}. Enemy Lives: ${computerLives}.`;
   gameAnnouncer.textContent = "Your enemy stands before you. Do you choose to fight?";
+
   playAgain.style.color = "transparent";
   playAgain.classList.remove("play-again-hover");
   playAgain.removeEventListener("click", resetGame);
+  backtoMenu.style.color = "transparent";
+  backtoMenu.removeEventListener("click", resetGame);
+
   removeElementColors();
 
   elements.forEach((element) => element.addEventListener("click", playRound));

@@ -14,16 +14,24 @@
     <title>Elemental Combat</title>
   </head>
   <body>
-    <main>
+    <header id="title-page">
+      <h1>Elemental Combat</h1>
+      <div class="elements">
+        <i class="fa-solid fa-fire-flame-curved element fire"></i>
+        <i class="fa-solid fa-leaf element nature"></i>
+        <i class="fa-solid fa-water element water"></i>
+      </div>
+      <a class="start-game" href="#game-area">Start Game</a>
+      <p class="footer">&copy; 2022 Brandonn Melchor</p>
+    </header>
+
+    <main id="game-area">
       <h1>Elemental Combat</h1>
 
       <div class="game-rules">
-        <p>3 Elements. 1 Destiny.</p>
-        <div class="elements">
-          <p>FIRE <span style="color: #f8a488">scorches</span> NATURE.</p>
-          <p>NATURE <span style="color: #5aa897">overwhelms</span> WATER.</p>
-          <p>WATER <span style="color: #4095bf">drowns</span> FIRE.</p>
-        </div>
+        <p>FIRE <span style="color: #f8a488">scorches</span> NATURE.</p>
+        <p>NATURE <span style="color: #5aa897">overwhelms</span> WATER.</p>
+        <p>WATER <span style="color: #4095bf">drowns</span> FIRE.</p>
       </div>
 
       <div class="player-area">
@@ -46,11 +54,10 @@
         <p id="game-announcer">Your enemy stands before you. Do you choose to fight?</p>
       </div>
 
-      <div class="play-again">Play again?</div>
+      <div class="game-end">
+        <div class="play-again">Play again?</div>
+        <a class="back-to-menu" href="#title-page">Back to Menu</a>
+      </div>
     </main>
-
-    <footer>
-      <p>&copy; 2022 Brandonn Melchor</p>
-    </footer>
   </body>
 </html>
