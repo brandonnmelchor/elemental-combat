@@ -7,13 +7,17 @@ const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
 const playAgain = document.querySelector("#play-again");
 
+const computerElements = document.querySelectorAll(".computer-area .element");
 const elements = document.querySelectorAll(".player-area .element");
 elements.forEach((element) => element.addEventListener("click", playRound));
 
 function playRound() {
   const playerElement = this.attributes["id"].nodeValue;
   const computerElement = computerPlay();
-  // const playerSelected = document.querySelector(`.element[id="${this.attributes["id"].nodeValue}"]`);
+
+  const playerSelected = document.querySelector(`.element[id="${this.attributes["id"].nodeValue}"]`);
+  const computerSelected = document.querySelector(`.element[id="computer-${computerElement}"]`);
+  highlightElements(playerSelected, computerSelected, computerElement);
 
   gameAnnouncer.textContent = checkRoundWinner(playerElement, computerElement);
   roundCounter.textContent = `Round:${++rounds}`;
@@ -32,9 +36,17 @@ function computerPlay() {
   else return "water";
 }
 
+function highlightElements(playerSelected, computerSelected, computerElement) {
+  elements.forEach((element) => element.classList.remove("fire", "nature", "water"));
+  computerElements.forEach((element) => element.classList.remove("fire", "nature", "water"));
+
+  playerSelected.classList.add(`${playerSelected.attributes["id"].nodeValue}`, "selected");
+  computerSelected.classList.add(`${computerElement}`, "selected");
+}
+
 function checkRoundWinner(playerElement, computerElement) {
   if (playerElement === computerElement) {
-    return `Draw! Your mastery of ${computerElement} matches your enemy's. No lives lost.`;
+    return `Draw! Your mastery of ${computerElement} matches your enemy's.`;
   } else if (
     (playerElement === "fire" && computerElement === "nature") ||
     (playerElement === "nature" && computerElement === "water") ||
@@ -69,10 +81,12 @@ function resetGame() {
 
   roundCounter.textContent = `Round:${rounds}`;
   LivesCounter.textContent = `Player Lives: ${playerLives}. Enemy Lives: ${computerLives}.`;
-  gameAnnouncer.textContent = "Combat Area: Empty";
+  gameAnnouncer.textContent = "Your enemy stands before you. Do you choose to fight?";
   playAgain.textContent = "";
   playAgain.classList.remove("play-again");
   playAgain.removeEventListener("click", resetGame);
 
   elements.forEach((element) => element.addEventListener("click", playRound));
+  elements.forEach((element) => element.classList.remove("fire", "nature", "water"));
+  computerElements.forEach((element) => element.classList.remove("fire", "nature", "water"));
 }
