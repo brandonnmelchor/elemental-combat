@@ -12,7 +12,7 @@ html {
   font-size: 20px;
   text-align: center;
   scroll-behavior: smooth;
-  overflow: hidden
+  overflow: hidden;
 }
 
 body {
@@ -114,6 +114,7 @@ h1 {
 
 .player-icon,
 .computer-icon {
+  padding: 10px;
   font-size: 3rem;
   -webkit-user-select: none;
   user-select: none;
@@ -177,4 +178,47 @@ h1 {
 .back-to-menu:hover,
 .back-to-menu:active {
   text-decoration: none;
+}
+
+@media (max-width: 950px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 850px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 12px;
+  }
+  .game-rules,
+  .player-area,
+  .computer-area,
+  .game-score {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    min-width: 350px;
+    font-size: 8px;
+    overflow: auto;
+  }
+  .game-rules,
+  .player-area,
+  .computer-area {
+    width: 40%;
+  }
 }
