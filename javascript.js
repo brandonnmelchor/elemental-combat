@@ -63,7 +63,7 @@ function checkGameWinner() {
   }
 
   elements.forEach((element) => element.removeEventListener("click", playRound));
-  playAgain.classList.add("element", "fire");
+  playAgain.classList.add("play-again");
   playAgain.textContent = "Play again?";
   playAgain.addEventListener("click", resetGame);
 }

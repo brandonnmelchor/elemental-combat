@@ -65,8 +65,7 @@ h1 {
 .element {
   width: 10rem;
   padding: 1rem .5rem;
-  color: #F8F5F1;
-  font-size: 1.5rem;
+  font-size: 5rem;
   text-align: center;
   border-radius: 5px;
   -webkit-user-select: none;
@@ -85,15 +84,29 @@ h1 {
 }
 
 .fire {
-  background: #F8A488;
+  color: #F8A488;
 }
 
 .nature {
-  background: #5AA897;
+  color: #5AA897;
 }
 
 .water {
-  background: #45526C;
+  color: #45526C;
+}
+
+#play-again {
+  width: 10rem;
+  padding: 1rem .5rem;
+  text-align: center;
+  border-radius: 5px;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: all .08s ease;
+}
+
+#play-again:hover {
+  cursor: pointer;
 }
 
 footer {
