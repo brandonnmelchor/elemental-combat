@@ -87,6 +87,7 @@ h1 {
 }
 
 .fire {
+  transform: scale(1.3);
   color: #F8A488;
 }
 
