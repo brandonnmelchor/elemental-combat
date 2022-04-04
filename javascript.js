@@ -34,17 +34,17 @@ function computerPlay() {
 
 function checkRoundWinner(playerElement, computerElement) {
   if (playerElement === computerElement) {
-    return "It's a tie!";
+    return `Draw! Your mastery of ${computerElement} matches your enemy's. No lives lost.`;
   } else if (
     (playerElement === "fire" && computerElement === "nature") ||
     (playerElement === "nature" && computerElement === "water") ||
     (playerElement === "water" && computerElement === "fire")
   ) {
     playerLives--;
-    return `You lose! ${capitalize(computerElement)} beats ${capitalize(playerElement)}.`;
+    return `Defeated! The enemy's imposing command of ${computerElement} overwhelms you.`;
   } else {
     computerLives--;
-    return `You win! ${capitalize(playerElement)} beats ${capitalize(computerElement)}.`;
+    return `Overpowering! Your profound control of ${playerElement} dealt damage to the enemy.`;
   }
 }
 
@@ -75,8 +75,4 @@ function resetGame() {
   playAgain.removeEventListener("click", resetGame);
 
   elements.forEach((element) => element.addEventListener("click", playRound));
-}
-
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
 }

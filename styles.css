@@ -4,7 +4,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  border: 1px gray solid;
+  /* border: 1px gray solid; */
 }
 
 html {
@@ -59,12 +59,13 @@ h1 {
   align-items: center;
   gap: 20px;
   padding: 20px;
-  border: 2px solid gray;
+  border: 3px solid gray;
+  border-radius: 10px;
 }
 
 .player-icon {
   font-size: 3rem;
-  border-radius: 5px;
+  border-radius: 10px;
   -webkit-user-select: none;
   user-select: none;
 }
@@ -72,7 +73,7 @@ h1 {
 .element {
   width: 10rem;
   font-size: 5rem;
-  border-radius: 5px;
+  border-radius: 10px;
   -webkit-user-select: none;
   user-select: none;
   transition: all .08s ease;
@@ -109,7 +110,7 @@ h1 {
 #play-again {
   width: 10rem;
   font-size: 2rem;
-  border-radius: 5px;
+  border-radius: 10px;
   -webkit-user-select: none;
   user-select: none;
   transition: all .08s ease;
