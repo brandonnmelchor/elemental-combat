@@ -12,7 +12,7 @@ html {
   font-size: 20px;
   text-align: center;
   scroll-behavior: smooth;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 body {
@@ -97,6 +97,14 @@ h1 {
   align-items: center;
   margin-top: 20px;
   gap: 10px;
+}
+
+.arena {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .player-area,
@@ -214,11 +222,13 @@ h1 {
   html {
     min-width: 350px;
     font-size: 8px;
-    overflow: auto;
   }
   .game-rules,
   .player-area,
   .computer-area {
     width: 40%;
+  }
+  .arena {
+    flex-direction: row;
   }
 }
