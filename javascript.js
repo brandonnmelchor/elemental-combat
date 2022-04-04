@@ -2,6 +2,10 @@ let rounds = 0;
 let playerLives = 5;
 let computerLives = 5;
 
+const playerArea = document.querySelector(".player-area");
+const playerIcon = document.querySelector(".player-icon");
+const computerArea = document.querySelector(".computer-area");
+const computerIcon = document.querySelector(".computer-icon");
 const roundCounter = document.querySelector("#rounds");
 const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
@@ -46,6 +50,10 @@ function highlightElements(playerSelected, computerSelected, computerElement) {
 
 function checkRoundWinner(playerElement, computerElement) {
   if (playerElement === computerElement) {
+    playerArea.style.borderColor = "#4095bf";
+    playerIcon.style.color = "#4095bf";
+    computerArea.style.borderColor = "#4095bf";
+    computerIcon.style.color = "#4095bf";
     return `Draw! Your mastery of ${computerElement} matches your enemy's.`;
   } else if (
     (playerElement === "fire" && computerElement === "nature") ||
@@ -53,9 +61,17 @@ function checkRoundWinner(playerElement, computerElement) {
     (playerElement === "water" && computerElement === "fire")
   ) {
     playerLives--;
+    playerArea.style.borderColor = "#F8A488";
+    playerIcon.style.color = "#F8A488";
+    computerArea.style.borderColor = "#5AA897";
+    computerIcon.style.color = "#5AA897";
     return `Defeated! The enemy's imposing command of ${computerElement} overwhelms you.`;
   } else {
     computerLives--;
+    playerArea.style.borderColor = "#5AA897";
+    playerIcon.style.color = "#5AA897";
+    computerArea.style.borderColor = "#F8A488";
+    computerIcon.style.color = "#F8A488";
     return `Overpowering! Your profound control of ${playerElement} dealt damage to the enemy.`;
   }
 }
