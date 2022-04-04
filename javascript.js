@@ -98,7 +98,7 @@ function resetGame() {
   playAgain.style.color = "transparent";
   playAgain.classList.remove("play-again-hover");
   playAgain.removeEventListener("click", resetGame);
-
   removeElementColors();
+
   elements.forEach((element) => element.addEventListener("click", playRound));
 }
