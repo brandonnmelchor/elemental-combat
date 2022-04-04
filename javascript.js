@@ -2,7 +2,7 @@ let rounds = 0;
 let playerLives = 5;
 let computerLives = 5;
 
-const roundCounter = document.querySelector("#round-counter");
+const roundCounter = document.querySelector("#rounds");
 const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
 const playAgain = document.querySelector("#play-again");
