@@ -3,9 +3,7 @@ let playerLives = 5;
 let computerLives = 5;
 
 const playerArea = document.querySelector(".player-area");
-const playerIcon = document.querySelector(".player-icon");
 const computerArea = document.querySelector(".computer-area");
-const computerIcon = document.querySelector(".computer-icon");
 const roundCounter = document.querySelector("#rounds");
 const LivesCounter = document.querySelector("#lives");
 const gameAnnouncer = document.querySelector("#game-announcer");
@@ -23,7 +21,7 @@ function playRound() {
   const computerSelected = document.querySelector(`.element[id="computer-${computerElement}"]`);
   highlightElements(playerSelected, computerSelected, computerElement);
 
-  gameAnnouncer.textContent = checkRoundWinner(playerElement, computerElement);
+  gameAnnouncer.innerHTML = checkRoundWinner(playerElement, computerElement);
   roundCounter.textContent = `Round:${++rounds}`;
   LivesCounter.textContent = `Player Lives: ${playerLives}. Enemy Lives: ${computerLives}.`;
 
@@ -51,10 +49,8 @@ function highlightElements(playerSelected, computerSelected, computerElement) {
 function checkRoundWinner(playerElement, computerElement) {
   if (playerElement === computerElement) {
     playerArea.style.borderColor = "#4095bf";
-    playerIcon.style.color = "#4095bf";
     computerArea.style.borderColor = "#4095bf";
-    computerIcon.style.color = "#4095bf";
-    return `Draw! Your mastery of ${computerElement} matches your enemy's.`;
+    return `<span style="color: #4095bf;">Draw!</span> Your mastery of ${computerElement} matches your enemy's.`;
   } else if (
     (playerElement === "fire" && computerElement === "nature") ||
     (playerElement === "nature" && computerElement === "water") ||
@@ -62,25 +58,21 @@ function checkRoundWinner(playerElement, computerElement) {
   ) {
     playerLives--;
     playerArea.style.borderColor = "#F8A488";
-    playerIcon.style.color = "#F8A488";
     computerArea.style.borderColor = "#5AA897";
-    computerIcon.style.color = "#5AA897";
-    return `Defeated! The enemy's imposing command of ${computerElement} overwhelms you.`;
+    return `<span style="color: #F8A488;">Defeated!</span> The enemy's imposing command of ${computerElement} overwhelms you.`;
   } else {
     computerLives--;
     playerArea.style.borderColor = "#5AA897";
-    playerIcon.style.color = "#5AA897";
     computerArea.style.borderColor = "#F8A488";
-    computerIcon.style.color = "#F8A488";
-    return `Overpowering! Your profound control of ${playerElement} dealt damage to the enemy.`;
+    return `<span style="color: #5AA897;">Overpowering!</span> Your profound control of ${playerElement} dealt damage to the enemy.`;
   }
 }
 
 function checkGameWinner() {
   if (playerLives === 0) {
-    gameAnnouncer.textContent = "You lost this battle!";
+    gameAnnouncer.innerHTML = `You <span style="color: #F8A488;">lost</span> this battle!`;
   } else {
-    gameAnnouncer.textContent = "You won this battle!";
+    gameAnnouncer.innerHTML = `You <span style="color: #5AA897;">won</span> this battle!`;
   }
 
   playAgain.textContent = "Play again?";
@@ -95,6 +87,8 @@ function resetGame() {
   playerLives = 5;
   computerLives = 5;
 
+  playerArea.style.borderColor = "#536878";
+  computerArea.style.borderColor = "#536878";
   roundCounter.textContent = `Round:${rounds}`;
   LivesCounter.textContent = `Player Lives: ${playerLives}. Enemy Lives: ${computerLives}.`;
   gameAnnouncer.textContent = "Your enemy stands before you. Do you choose to fight?";
