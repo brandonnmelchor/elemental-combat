@@ -1,4 +1,4 @@
-# Elemental-Combat
+# Elemental Combat
 
 I created a game using vanilla HTML, CSS, and JavaScript. The game uses a simple combat triangle system using three elements: fire, nature, and water.
 
@@ -9,7 +9,7 @@ Things I learned:
 - Use event listeners to create a dynamic page.
 - Apply event listeners to multiple nodes using loops and nodelist.
 
-https://brandonnmelchor.github.io/Elemental-Combat/
+https://brandonnmelchor.github.io/elemental-combat/
 
 ![](https://github.com/brandonnmelchor/Elemental-Combat/blob/main/screenshot%20main.png?raw=true)
 
